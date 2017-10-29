@@ -1,0 +1,33 @@
+Nanopore Spacer Loss Analysis Version 1.0 
+Full Length Reads Detected:1
+Continuous Losses Detected (read name, length) : 
+ch108_read54          53
+ch138_read274          47
+ch156_read26          53
+ch202_read25          53
+ch244_read11          53
+ch244_read13          53
+ch244_read15          53
+ch244_read5          53
+ch244_read7          53
+ch244_read9          53
+ch257_read23          8
+ch285_read54          1
+ch287_read26          53
+ch288_read9          53
+ch299_read32          20
+ch70_read41          53
+ch77_read59          1
+ch82_read77          14
+Discontinuous Losses Detected (read name, # of Crossovers) : 
+ch111_read38          2
+ch112_read40          2
+ch140_read13          2
+ch147_read24          2
+ch15_read97          2
+ch155_read72          2
+ch156_read60          3
+ch266_read76          2
+ch271_read82          2
+ch301_read49          2
+ch72_read38          2
