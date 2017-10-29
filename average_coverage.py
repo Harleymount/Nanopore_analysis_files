@@ -31,7 +31,7 @@ from multiprocessing import Pool
 
 def average_coverage():
     for filename in os.listdir(os.getcwd())[:]:
-        if str(filename)!= '.DS_Store' and str(filename) !='flankspacers.bed' and str(filename) !='average_coverage.py' and str(filename) !='merge_csv.R':
+        if str(filename)!= '.DS_Store' and str(filename) !='flankspacers.bed' and str(filename) !='average_coverage.py' and str(filename) !='merge_csv.R' and str(filename) !='analyze_reads.py':
             coverage_file=open(filename, 'r')
             line=coverage_file.readline()
             cov_dict={}
