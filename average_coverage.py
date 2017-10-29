@@ -14,7 +14,6 @@ provided_input=sys.argv[1:]
 
 list_of_spacers=[]
 regions=open(provided_input[0]+'/flankspacers.bed', 'r')
-
 import os 
 
 region=regions.readline()
@@ -25,13 +24,9 @@ while region != '':
     region=regions.readline()
 
 
-
-from multiprocessing import Pool
-
-
 def average_coverage():
     for filename in os.listdir(os.getcwd())[:]:
-        if str(filename)!= '.DS_Store' and str(filename) !='flankspacers.bed' and str(filename) !='average_coverage.py' and str(filename) !='merge_csv.R' and str(filename) !='analyze_reads.py':
+        if str(filename)!= '.DS_Store' and str(filename) !='flankspacers.bed' and str(filename) !='average_coverage.py' and str(filename) !='merge_csv.R' and str(filename) !='analyze_reads.py'and str(filename) !='.Rhistory':
             coverage_file=open(filename, 'r')
             line=coverage_file.readline()
             cov_dict={}
