@@ -10,9 +10,9 @@ files<-head(files, -1)
 
 #====================================================================
 #FOR DEBUGGING
-dir<-'/Users/Harley/Desktop/test_fast5'
-files <- list.files(path=dir, pattern="*.csv", full.names=T, recursive=FALSE)
-files<-head(files, -1)
+#dir<-'/Users/Harley/Desktop/test_fast5'
+#files <- list.files(path=dir, pattern="*.csv", full.names=T, recursive=FALSE)
+#files<-head(files, -1)
 #====================================================================
 
 #====================================================================
