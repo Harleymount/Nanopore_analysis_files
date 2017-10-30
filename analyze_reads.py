@@ -11,10 +11,6 @@ provided_input=sys.argv[1:]
 matrix_file_path=provided_input[0]
 matrix_file=open(matrix_file_path,'r')
 
-
-
-matrix_file=open('Matrix_output_transpose.csv','r')
-
 line=matrix_file.readline().strip()
 line=matrix_file.readline().strip()
 read_name=line.split(',')[0]
@@ -77,3 +73,21 @@ for item in continuous_output:
 output_file.writelines('Discontinuous Losses Detected (read name, # of Crossovers) : \n')
 for item in discontinuous:
     output_file.writelines(item[0] + '          '+str(item[1])+'\n')
+    
+    
+
+
+
+
+import csv
+with open('discontinuous_hist.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(['read_name','crossovers'])
+    writer.writerows(discontinuous)
+            
+            
+with open('continuous_hist.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(['read_name','loss_length'])
+    writer.writerows(continuous_output)
+            
