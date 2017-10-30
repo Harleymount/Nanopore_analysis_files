@@ -10,9 +10,9 @@ files<-head(files, -1)
 
 #====================================================================
 #FOR DEBUGGING
-#dir<-'/Users/Harley/Desktop/test_fast5'
-#files <- list.files(path=dir, pattern="*.csv", full.names=T, recursive=FALSE)
-#files<-head(files, -1)
+dir<-'/Users/Harley/Desktop/test_fast5'
+files <- list.files(path=dir, pattern="*.csv", full.names=T, recursive=FALSE)
+files<-head(files, -1)
 #====================================================================
 
 #====================================================================
@@ -48,6 +48,9 @@ length_dataframe_matrix[length_dataframe_matrix > 0.61 ] <- 1
 length_dataframe_matrix[length_dataframe_matrix < 0.61 ] <- 0
 #====================================================================
 
+
+
+
 #====================================================================
 #put data back into a dataframe for downstream processing
 filtered_data<-as.data.frame(length_dataframe_matrix)
@@ -61,6 +64,9 @@ write.csv(filtered_data, "matrix_output.csv")
 target<-c("3'flank", '1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53',"5'flank")
 filtered_data_sorted<-filtered_data[match(target, filtered_data$spacer),]
 transposed_data<-t(filtered_data_sorted)
-write.table(transposed_data, "matrix_output_transpose.csv", sep=',', col.names=F, quote=F)
+transposed_data_2<-as.data.frame(transposed_data)
+transposed_data_2<-transposed_data_2[transposed_data_2$`3'flank` != 0,]
+transposed_data_2<-transposed_data_2[transposed_data_2$`5'flank` != 0,]
+write.table(transposed_data_2, "matrix_output_transpose.csv", sep=',', col.names=F, quote=F)
 #====================================================================
 
