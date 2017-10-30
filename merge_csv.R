@@ -10,9 +10,9 @@ files<-head(files, -1)
 
 #====================================================================
 #FOR DEBUGGING
-#dir<-'/Users/Harley/Desktop/test_fast5'
-#files <- list.files(path=dir, pattern="*.csv", full.names=T, recursive=FALSE)
-#files<-head(files, -1)
+dir<-'/Users/Harley/Desktop/test_fast5'
+files <- list.files(path=dir, pattern="*.csv", full.names=T, recursive=FALSE)
+files<-head(files, -1)
 #====================================================================
 
 #====================================================================
@@ -60,6 +60,7 @@ write.csv(filtered_data, "matrix_output.csv")
 #add code to transpose and sort matrix and output that as well 
 target<-c("3'flank", '1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53',"5'flank")
 filtered_data_sorted<-filtered_data[match(target, filtered_data$spacer),]
-write.csv(filtered_data_sorted, "matrix_output_transpose.csv")
+transposed_data<-t(filtered_data_sorted)
+write.table(transposed_data, "matrix_output_transpose.csv", sep=',', col.names=F)
 #====================================================================
 
