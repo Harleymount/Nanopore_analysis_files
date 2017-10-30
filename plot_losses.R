@@ -1,11 +1,8 @@
 args = commandArgs(trailingOnly=TRUE)
-hist_file=args[1]
+hist_file=args[2]
+dir=args[1]
 hist_data<-read.csv(hist_file)
-
-
-
-
-
+setwd(dir)
 library(ggplot2)
 Cleanup<- theme(panel.grid.major=element_blank(),#remove teh major gridlines
                 panel.grid.minor=element_blank(),#remoce the minor gridlines
