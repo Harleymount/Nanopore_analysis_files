@@ -1,8 +1,25 @@
 #!/bin/bash
-dir=$1
-spacer_bed=$2
-reference=$3
+#get command line options ----------------------------------------
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    "--reference") set -- "$@" "-r" ;;
+    "--spacer_bed") set -- "$@" "-x" ;;
+	"--directory")   set -- "$@" "-z" ;;
+    *)        set -- "$@" "$arg"
+  esac
+done
 
+
+while getopts r:x:z: option
+do
+ case "${option}"
+ in
+ r) reference=${OPTARG};;
+ x) spacer_bed=${OPTARG};;
+ z) dir=$OPTARG;;
+ esac
+done
 
 cd $dir;
 

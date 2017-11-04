@@ -1,9 +1,24 @@
 #!/bin/bash
 #analyze reads 
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    "--matrix") set -- "$@" "-r" ;;
+	"--directory")   set -- "$@" "-z" ;;
+    *)        set -- "$@" "$arg"
+  esac
+done
 
 
-dir=$1;
-file=$2
+while getopts r:z: option
+do
+ case "${option}"
+ in
+ r) file=${OPTARG};;
+ z) dir=$OPTARG;;
+ esac
+done
+
 cd $dir;
 
 python analyze_reads.py $file;
