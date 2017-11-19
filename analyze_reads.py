@@ -51,9 +51,11 @@ discontinuous=[]
 for item in read_info_list:
     if item[1]==0:
         full_length+=1
+        discontinuous.append((item[0], item[1]))# decided to add things that have no losses to the output histogram for crossovers as well because alex wanted it
     elif item[1] == 1:
         continuous.append((item[0],item[2][0]))
-    elif item[1] >= 2:
+        discontinuous.append((item[0], item[1])) # decided to add things that have single losses to the output histogram for crossovers as well because alex wanted it
+    elif item[1] >= 1:
         discontinuous.append((item[0], item[1]))
 
 
