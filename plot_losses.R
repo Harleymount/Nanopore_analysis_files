@@ -12,7 +12,7 @@ Cleanup<- theme(panel.grid.major=element_blank(),#remove teh major gridlines
 
 tiff("array_loss_length.tiff", height = 12, width = 25, units = 'cm', 
      compression = "lzw", res = 300)
-ggplot(hist_data, aes(x=loss_length))+geom_histogram(binwidth=1,color='dark blue',fill='gray70')+Cleanup+labs(x='Size of Continuous Array Loss', y='Frequency')+ggtitle('Array Size Loss Frequency Among Reads') + theme(plot.title = element_text(hjust = 0.5)) + scale_x_continuous(breaks=seq(0,54,1), limits=c(0,54))+scale_y_continuous(breaks=seq(0,100,2), limits=c(0,30))
+ggplot(hist_data, aes(x=loss_length))+geom_histogram(binwidth=1,color='white',fill='gray0')+Cleanup+labs(x='Size of Continuous Array Loss', y='Frequency')+ggtitle('Array Size Loss Frequency Among Reads') + theme(plot.title = element_text(hjust = 0.5)) + scale_x_continuous(breaks=seq(1,54,1), limits=c(0,54))
 dev.off()
 
 
