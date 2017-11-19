@@ -1,7 +1,5 @@
 args = commandArgs(trailingOnly=TRUE)
 hist_file=args[2]
-hist_file='discontinuous_hist.csv'
-dir='/Users/Harley/Desktop/test_fast5/'
 dir=args[1]
 hist_data<-read.csv(hist_file)
 setwd(dir)
