@@ -28,6 +28,7 @@ ls | grep -E '\.fast5$'| parallel -j 0 'poretools fastq {} > {}.fastq' ;
 
 rm *.fast5;
 
+gmap_build -d pLENS.genome $reference
 
 ls | grep -E '\.fastq$' | parallel -j 0 'gmap -d pLENS.genome -A {} -f samse > {}.sam';
 
