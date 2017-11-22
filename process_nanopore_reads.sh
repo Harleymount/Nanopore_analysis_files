@@ -26,31 +26,31 @@ cd $dir;
 #convert to fastq
 ls | grep -E '\.fast5$'| parallel -j 0 'poretools fastq {} > {}.fastq' ;
 
-rm *.fast5;
+find . -name '*.fast5' -print0 | xargs -0 rm;
 
 gmap_build -d pLENS.genome $reference
 
 ls | grep -E '\.fastq$' | parallel -j 0 'gmap -d pLENS.genome -A {} -f samse > {}.sam';
 
-rm *.fastq;
+find . -name '*.fastq' -print0 | xargs -0 rm;
 
 ls | grep -E '\.sam$' | parallel -j 0 'Picard SamFormatConverter I={} O={}.bam';
-rm *.sam;
+find . -name '*.sam' -print0 | xargs -0 rm;
 
 
 ls | grep -E '\.bam$' | parallel -j 0 'Picard AddOrReplaceReadGroups I={} O={}_sorted.bam SORT_ORDER=coordinate RGLB=NA RGPL=Nanopore RGPU=NA RGSM=NA';
-rm *.sam.bam;
+find . -name '*.sam.bam' -print0 | xargs -0 rm;
 
 
 
 ls | grep -E '\_sorted.bam$' | parallel -j 0 'bedtools genomecov -d -split -ibam {} > {}.tdt';
-rm *_sorted.bam;
+find . -name '*_sorted.bam' -print0 | xargs -0 rm;
 
 
 #now run my average coverage python script 
 python average_coverage.py $dir
 
-rm *.tdt
+find . -name '*.tdt' -print0 | xargs -0 rm;
 
 
 
