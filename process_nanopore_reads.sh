@@ -34,16 +34,16 @@ ls | grep -E '\.fastq$' | parallel -j 0 'gmap -d pLENS.genome -A {} -f samse > {
 
 rm *.fastq;
 
-ls | grep -E '\.sam$' | parallel 'Picard SamFormatConverter I={} O={}.bam';
+ls | grep -E '\.sam$' | parallel -j 0 'Picard SamFormatConverter I={} O={}.bam';
 rm *.sam;
 
 
-ls | grep -E '\.bam$' | parallel 'Picard AddOrReplaceReadGroups I={} O={}_sorted.bam SORT_ORDER=coordinate RGLB=NA RGPL=Nanopore RGPU=NA RGSM=NA';
+ls | grep -E '\.bam$' | parallel -j 0 'Picard AddOrReplaceReadGroups I={} O={}_sorted.bam SORT_ORDER=coordinate RGLB=NA RGPL=Nanopore RGPU=NA RGSM=NA';
 rm *.sam.bam;
 
 
 
-ls | grep -E '\_sorted.bam$' | parallel 'bedtools genomecov -d -split -ibam {} > {}.tdt';
+ls | grep -E '\_sorted.bam$' | parallel -j 0 'bedtools genomecov -d -split -ibam {} > {}.tdt';
 rm *_sorted.bam;
 
 
