@@ -51,8 +51,8 @@ find . -name '*_sorted.bam' -print0 | xargs -0 rm;
 python average_coverage.py $dir
 
 find . -name '*.tdt' -print0 | xargs -0 rm;
-
-
+#added to remove blank files that will throw errors
+find . -size 0 -delete
 
 Rscript merge_csv.R $dir
 
