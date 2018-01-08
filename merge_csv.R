@@ -4,6 +4,7 @@ args = commandArgs(trailingOnly=TRUE)
 dir=args[1]
 files <- list.files(path=dir, pattern="*.csv", full.names=T, recursive=FALSE)
 files<-head(files, -1)
+files<-tail(files, -1)
 #====================================================================
 
 
