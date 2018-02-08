@@ -65,3 +65,4 @@ for f in glob.glob("*.tdt"):
     p.apply_async(average_coverage, [f]) 
 
 p.close()
+p.join()
